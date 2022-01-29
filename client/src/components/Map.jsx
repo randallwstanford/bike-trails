@@ -1,20 +1,22 @@
-import React, { useRef, useEffect } from 'react'
-import { GoogleMap, LoadScript, useLoadScript } from '@react-google-maps/api';
+import React from 'react'
+import { GoogleMap, useJsApiLoader, LoadScript } from '@react-google-maps/api';
 import { api_key } from '../../../api-key.js';
 
 const Map = () => {
-  const { isLoaded, loadError } = useLoadScript({ googleMapsApiKey: api_key });
-  const center = { lat: 39.7392, lng: -104.9903 };
-  const containerStyle = { width: '40rem', height: '40rem' };
 
-  if (loadError) return 'Error loading maps';
-  if (!isLoaded) return 'Loading maps';
+  const mapStyles = { width: '40rem', height: '40rem' };
+  const center = { lat: 39.75, lng: -105.00 };
 
   return (
-    <div className="map">
-      <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10} />
-    </div>
-  );
+     <LoadScript
+       googleMapsApiKey={api_key}>
+        <GoogleMap
+          mapContainerStyle={mapStyles}
+          zoom={10}
+          center={center}
+        />
+     </LoadScript>
+  )
 }
 
 export default Map;
