@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react';
-
-import api_key from '../../api-key.js';
+import React from 'react';
 import Map from './components/Map';
+import Input from './components/Input';
+import Header from './components/Header';
 
-const App = () => {
+function App() {
   return (
     <div className="App">
+      <Header />
+      <Input />
       <Map />
     </div>
   );
-};
+}
 
 export default App;
