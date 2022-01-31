@@ -57,24 +57,23 @@ function Map() {
   }, []);
 
   if (loadError) return <div>Map cannot be loaded right now, sorry.</div>;
+  if (!isLoaded) return <div>Loading...</div>;
 
-  return isLoaded
-    ? (
-      <div>
-        <GoogleMap
-          mapContainerStyle={mapContainerStyle}
-          zoom={10}
-          center={center}
-          options={options}
-          onLoad={onMapLoad}
-        />
-        <div style={placesContainer}>
-          <Search panTo={panTo} />
-          <Places places={places} />
-        </div>
+  return (
+    <div>
+      <GoogleMap
+        mapContainerStyle={mapContainerStyle}
+        zoom={10}
+        center={center}
+        options={options}
+        onLoad={onMapLoad}
+      />
+      <div style={placesContainer}>
+        <Search panTo={panTo} />
+        <Places places={places} />
       </div>
-    )
-    : <div>Loading...</div>;
+    </div>
+  );
 }
 
 export default Map;
