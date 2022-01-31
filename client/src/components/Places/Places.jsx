@@ -18,7 +18,6 @@ const Places = ({ places }) => (
               <div>{index + 1}.
                 <div>Name: {place.name}</div>
                 <div>Address: {place.vicinity}</div>
-                {console.log(place.photos)}
                 {place.photos !== undefined
                   ? (
                     <div>
