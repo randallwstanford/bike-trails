@@ -3,6 +3,7 @@ module.exports = {
     browser: true,
     commonjs: true,
     es2021: true,
+    node: true,
   },
   extends: [
     'plugin:react/recommended',
@@ -18,5 +19,8 @@ module.exports = {
     'react',
   ],
   rules: {
+    'jsx-one-expression-per-line': 'off',
+    'function-component-definition': 'off',
+    'react/no-array-index-key': 'off',
   },
 };
