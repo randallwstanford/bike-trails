@@ -20,7 +20,10 @@ module.exports = {
   ],
   rules: {
     'jsx-one-expression-per-line': 'off',
-    'function-component-definition': 'off',
+    'react/function-component-definition': 'off',
     'react/no-array-index-key': 'off',
+    'react/jsx-one-expression-per-line': 'off',
+    'object-curly-newline': 'off',
+    'max-len': ['error', { code: 110 }],
   },
 };
