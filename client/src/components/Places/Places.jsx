@@ -1,51 +1,53 @@
+/* eslint-disable max-len */
 /* eslint-disable no-console */
-/* eslint-disable react/jsx-one-expression-per-line */
+
 // Modules
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // Styles
-import { noResultsStyle, placesContainer, placeStyle } from './PlacesStyles';
+import { noResultsStyle, placeStyle } from './PlacesStyles';
 
-const places = [
-  { name: 'test', vicinity: 'some address' },
-  { name: 'test', vicinity: 'some address' },
-  { name: 'test', vicinity: 'some address' },
-  { name: 'test', vicinity: 'some address' },
-  { name: 'test', vicinity: 'some address' },
-  { name: 'test', vicinity: 'some address' },
-  { name: 'test', vicinity: 'some address' },
-  { name: 'test', vicinity: 'some address' },
-  { name: 'test', vicinity: 'some address' },
-  { name: 'test', vicinity: 'some address' },
-  { name: 'test', vicinity: 'some address' },
-  { name: 'test', vicinity: 'some address' },
-  { name: 'test', vicinity: 'some address' },
-  { name: 'test', vicinity: 'some address' },
-  { name: 'test', vicinity: 'some address' },
-  { name: 'test', vicinity: 'some address' },
-  { name: 'test', vicinity: 'some address' },
-  { name: 'test', vicinity: 'some address' },
-  { name: 'test', vicinity: 'some address' },
-  { name: 'test', vicinity: 'some address' },
-  { name: 'test', vicinity: 'some address' },
-  { name: 'test', vicinity: 'some address' },
-];
-
-function Places() {
-  return (
-    <div style={placesContainer}>
-      {
-        places.length > 0
-          ? places.slice(1, 20).map((place, index) => (
-            <div key={index} style={placeStyle}>
-              <div>{index}. Name: {place.name}</div>
-              <div>Address: {place.vicinity} </div>
+const Places = ({ places }) => (
+  <div>
+    {
+      places.length > 0
+        ? places.map((place, index) => (
+          <div key={index}>
+            <div style={placeStyle}>
+              <div>{index + 1}.
+                <div>Name: {place.name}</div>
+                <div>Address: {place.vicinity}</div>
+                {console.log(place.photos)}
+                {place.photos !== undefined
+                  ? (
+                    <div>
+                      <div>Found {place.photos.length} photos.</div>
+                      <img src={place.photos[0].getUrl()} alt="" height="250rem" />
+                    </div>
+                  ) : <div>No photos</div>}
+              </div>
             </div>
-          ))
-          : <div style={noResultsStyle}>No results.</div>
-      }
-    </div>
-  );
-}
+          </div>
+        ))
+        : <div style={noResultsStyle}>No results.</div>
+    }
+  </div>
+);
+
+Places.propTypes = {
+  places: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      vicinity: PropTypes.string,
+      length: PropTypes.number,
+      // map: PropTypes.func,
+      // photos: PropTypes.shape({
+      //   length: PropTypes.number,
+      //   getUrl: PropTypes.func,
+      // }),
+    }),
+  ).isRequired,
+};
 
 export default Places;
