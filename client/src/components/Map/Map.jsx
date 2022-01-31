@@ -1,7 +1,7 @@
-/* eslint-disable no-new */
-/* eslint-disable react/jsx-one-expression-per-line */
+/* eslint-disable no-console */
+
 // Modules
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { GoogleMap, useLoadScript } from '@react-google-maps/api';
 
 // Components
@@ -23,7 +23,7 @@ const center = { lat: 39.75, lng: -105.00 };
 function Map() {
   const { isLoaded, loadError } = useLoadScript({ googleMapsApiKey: apiKey, libraries });
   const mapRef = React.useRef();
-
+  const [places, setPlaces] = useState([]);
   // Map Load script
   const onMapLoad = useCallback((map) => {
     mapRef.current = map;
@@ -45,9 +45,12 @@ function Map() {
     service = new window.google.maps.places.PlacesService(mapRef.current);
     service.nearbySearch(request, (results, status) => {
       if (status === window.google.maps.places.PlacesServiceStatus.OK) {
+        setPlaces(results);
+        console.log(results);
         for (let i = 0; i < results.length; i += 1) {
           const place = results[i];
-          new window.google.maps.Marker({ position: place.geometry.location, map });
+          // eslint-disable-next-line no-unused-vars
+          const marker = new window.google.maps.Marker({ position: place.geometry.location, map });
         }
       }
     });
@@ -67,7 +70,7 @@ function Map() {
         />
         <div style={placesContainer}>
           <Search panTo={panTo} />
-          <Places />
+          <Places places={places} />
         </div>
       </div>
     )
