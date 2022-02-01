@@ -3,7 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import usePlacesAutocomplete, { getGeocode, getLatLng } from 'use-places-autocomplete';
-import { inputContainerStyle, inputStyle, suggestionsStyle, suggestStyle } from './SearchStyles';
+import { suggestStyle } from './SearchStyles';
 
 const Search = ({ panTo }) => {
   const { value, suggestions: { status, data }, setValue, clearSuggestions } = usePlacesAutocomplete();
@@ -27,9 +27,9 @@ const Search = ({ panTo }) => {
   ));
 
   return (
-    <div style={inputContainerStyle}>
-      <input value={value} onChange={handleInput} placeholder="Where are you going?" style={inputStyle} />
-      {status === 'OK' ? <div style={suggestionsStyle}>{renderSuggestions()}</div> : null}
+    <div>
+      <input value={value} onChange={handleInput} placeholder="Where are you going?" />
+      {status === 'OK' ? <div>{renderSuggestions()}</div> : null}
     </div>
   );
 };
