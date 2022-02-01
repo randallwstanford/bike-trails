@@ -1,12 +1,13 @@
 const placeStyle = {
   margin: '.25rem',
-  marginBotom: '.25rem',
+  marginBottom: '1rem',
   borderBottom: '1px solid black',
 };
 
 const noResultsStyle = {
-  font: '3rem',
+  fontSize: '2rem',
   textAlign: 'center',
+  marginTop: '2rem',
 };
 
 module.exports = { noResultsStyle, placeStyle };
