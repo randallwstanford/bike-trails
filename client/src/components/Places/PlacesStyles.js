@@ -10,4 +10,9 @@ const noResultsStyle = {
   marginTop: '2rem',
 };
 
-module.exports = { noResultsStyle, placeStyle };
+const resultCountStyle = {
+  textAlign: 'center',
+  margin: '1rem',
+};
+
+module.exports = { noResultsStyle, placeStyle, resultCountStyle };
