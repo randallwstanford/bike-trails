@@ -38,15 +38,14 @@ function Map() {
 
     const request = {
       location: { lat, lng },
-      radius: '500',
-      type: ['park'],
+      radius: '50000',
+      query: 'bike trails',
     };
 
     service = new window.google.maps.places.PlacesService(mapRef.current);
-    service.nearbySearch(request, (results, status) => {
+    service.textSearch(request, (results, status) => {
       if (status === window.google.maps.places.PlacesServiceStatus.OK) {
         setPlaces(results);
-        console.log(results);
         results.forEach((result) => {
           // eslint-disable-next-line no-unused-vars
           const marker = new window.google.maps.Marker({ position: result.geometry.location, map });
@@ -65,6 +64,7 @@ function Map() {
         <Places places={places} />
       </div>
       <GoogleMap
+        id="map"
         mapContainerStyle={mapContainerStyle}
         zoom={10}
         center={center}
