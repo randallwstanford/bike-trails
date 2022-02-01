@@ -5,6 +5,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// Components
+import Photos from '../Photos/Photos';
+
 // Styles
 import { noResultsStyle, placeStyle } from './PlacesStyles';
 
@@ -13,20 +16,10 @@ const Places = ({ places }) => (
     {
       places.length > 0
         ? places.map((place, index) => (
-          <div key={index}>
-            <div style={placeStyle}>
-              <div>{index + 1}.
-                <div>Name: {place.name}</div>
-                <div>Address: {place.vicinity}</div>
-                {place.photos !== undefined
-                  ? (
-                    <div>
-                      <div>Found {place.photos.length} photos.</div>
-                      <img src={place.photos[0].getUrl()} alt="" height="250rem" />
-                    </div>
-                  ) : <div>No photos</div>}
-              </div>
-            </div>
+          <div key={index} style={placeStyle}>
+            <div>Name: {place.name}</div>
+            <div>Address: {place.vicinity}</div>
+            <Photos photos={place.photos} />
           </div>
         ))
         : <div style={noResultsStyle}>No results.</div>
@@ -40,11 +33,6 @@ Places.propTypes = {
       name: PropTypes.string,
       vicinity: PropTypes.string,
       length: PropTypes.number,
-      // map: PropTypes.func,
-      // photos: PropTypes.shape({
-      //   length: PropTypes.number,
-      //   getUrl: PropTypes.func,
-      // }),
     }),
   ).isRequired,
 };
