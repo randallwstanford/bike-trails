@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Header() {
-  const headerStyle = { margin: '1rem', textAlign: 'center' };
+  const headerStyle = { margin: '1rem', textAlign: 'center', fontSize: '2.5rem' };
 
   return (
     <nav style={headerStyle}>
