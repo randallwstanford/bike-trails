@@ -9,16 +9,17 @@ import PropTypes from 'prop-types';
 import Photos from '../Photos/Photos';
 
 // Styles
-import { noResultsStyle, placeStyle } from './PlacesStyles';
+import { noResultsStyle, placeStyle, resultCountStyle } from './PlacesStyles';
 
 const Places = ({ places }) => (
   <div>
+    { places.length > 0 ? <div style={resultCountStyle}>Found {places.length} results.</div> : null }
     {
       places.length > 0
         ? places.map((place, index) => (
           <div key={index} style={placeStyle}>
             <div>Name: {place.name}</div>
-            <div>Address: {place.vicinity}</div>
+            <div>Address: {place.formatted_address}</div>
             <Photos photos={place.photos} />
           </div>
         ))
