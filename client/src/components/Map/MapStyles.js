@@ -1,16 +1,14 @@
 const mapContainerStyle = {
-  width: '49%',
+  width: '65%',
   height: '50rem',
-  float: 'left',
+  float: 'right',
   marginRight: '.5rem',
 };
 
 const placesContainer = {
-  width: '49%',
-  height: '49rem',
+  width: '34%',
+  height: '50rem',
   float: 'left',
-  marginTop: '1rem',
-  marginLeft: '.5rem',
   overflow: 'auto',
 };
 

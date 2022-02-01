@@ -47,11 +47,10 @@ function Map() {
       if (status === window.google.maps.places.PlacesServiceStatus.OK) {
         setPlaces(results);
         console.log(results);
-        for (let i = 0; i < results.length; i += 1) {
-          const place = results[i];
+        results.forEach((result) => {
           // eslint-disable-next-line no-unused-vars
-          const marker = new window.google.maps.Marker({ position: place.geometry.location, map });
-        }
+          const marker = new window.google.maps.Marker({ position: result.geometry.location, map });
+        });
       }
     });
   }, []);
@@ -61,6 +60,10 @@ function Map() {
 
   return (
     <div>
+      <div style={placesContainer}>
+        <Search panTo={panTo} />
+        <Places places={places} />
+      </div>
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
         zoom={10}
@@ -68,10 +71,6 @@ function Map() {
         options={options}
         onLoad={onMapLoad}
       />
-      <div style={placesContainer}>
-        <Search panTo={panTo} />
-        <Places places={places} />
-      </div>
     </div>
   );
 }
