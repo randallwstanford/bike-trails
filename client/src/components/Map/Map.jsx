@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 
 // Modules
@@ -24,6 +25,7 @@ function Map() {
   const { isLoaded, loadError } = useLoadScript({ googleMapsApiKey: apiKey, libraries });
   const mapRef = React.useRef();
   const [places, setPlaces] = useState([]);
+
   // Map Load script
   const onMapLoad = useCallback((map) => {
     mapRef.current = map;
@@ -33,12 +35,12 @@ function Map() {
 
   const panTo = React.useCallback(({ lat, lng }) => {
     mapRef.current.panTo({ lat, lng });
-    mapRef.current.setZoom(12);
+    mapRef.current.setZoom(11);
     const map = mapRef.current;
 
     const request = {
       location: { lat, lng },
-      radius: '50000',
+      radius: '500000',
       query: 'bike trails',
     };
 
@@ -47,8 +49,24 @@ function Map() {
       if (status === window.google.maps.places.PlacesServiceStatus.OK) {
         setPlaces(results);
         results.forEach((result) => {
-          // eslint-disable-next-line no-unused-vars
-          const marker = new window.google.maps.Marker({ position: result.geometry.location, map });
+          const contentString = `
+            <div style="text-align: center">
+              <div>${result.name}</div>
+              <div>${result.formatted_address}</div>
+              </div>
+            `;
+          const infoWindow = new window.google.maps.InfoWindow({ content: contentString });
+          const marker = new window.google.maps.Marker({
+            position: result.geometry.location,
+            title: result.name,
+            map,
+          });
+          marker.addListener('click', () => {
+            infoWindow.close();
+            infoWindow.open({ anchor: marker, map });
+            infoWindow.open(marker.getMap(), marker);
+            mapRef.current.panTo({ lat: marker.position.lat(), lng: marker.position.lng() });
+          });
         });
       }
     });
@@ -66,7 +84,7 @@ function Map() {
       <GoogleMap
         id="map"
         mapContainerStyle={mapContainerStyle}
-        zoom={10}
+        zoom={11}
         center={center}
         options={options}
         onLoad={onMapLoad}

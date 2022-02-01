@@ -9,7 +9,7 @@ const placesContainer = {
   width: '34%',
   height: '50rem',
   float: 'left',
-  overflow: 'auto',
+  overflowX: 'hidden',
 };
 
 module.exports = { mapContainerStyle, placesContainer };
