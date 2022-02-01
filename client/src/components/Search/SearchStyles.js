@@ -1,19 +1,11 @@
-const inputContainerStyle = {
-  width: '97.5%',
-};
-const inputStyle = {
-  width: '99%',
-};
-
 const suggestStyle = {
-  textAlign: 'center', width: '100%', textDecoration: 'none', borderRadius: '0px', border: 'none',
-};
-
-const suggestionsStyle = {
+  textAlign: 'center',
   width: '100%',
-  border: '1px solid black',
+  textDecoration: 'none',
+  borderRadius: '0px',
+  border: 'none',
+  borderBottom: '1px solid black',
+  height: '2rem',
 };
 
-module.exports = {
-  suggestionsStyle, suggestStyle, inputStyle, inputContainerStyle,
-};
+module.exports = { suggestStyle };
