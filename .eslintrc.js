@@ -25,5 +25,6 @@ module.exports = {
     'react/jsx-one-expression-per-line': 'off',
     'object-curly-newline': 'off',
     'max-len': ['error', { code: 110 }],
+    camelcase: 'off',
   },
 };
