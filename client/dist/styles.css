@@ -1,17 +1,36 @@
 body {
-  background-color: #738595;
-  font-family: 'Comfortaa', cursive;
+  background-color: #A7BCDC;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 500;
+}
+
+h2 {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
 }
 
 input {
   background-color: #bebebe;
   color: rgb(240, 240, 240);
-  width: 99%;
-  height: 2rem;
+  width: 100%;
+  height: 3rem;
+  font-size: 1.5rem;
   text-align: center;
   border: none;
   text-decoration: none;
   overflow-y: hidden;
+}
+
+
+input:focus {
+  outline: none;
+  color:rgb(80, 80, 80)
+}
+
+input:focus::-webkit-input-placeholder {
+  color: transparent;
 }
 
 input::placeholder {
