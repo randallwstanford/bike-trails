@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import Photos from '../Photos/Photos';
 
 // Styles
-import { noResultsStyle, placeStyle, resultCountStyle } from './PlacesStyles';
+import { noResultsStyle, placeStyle, resultCountStyle, nameStyle } from './PlacesStyles';
 
 const Places = ({ places }) => (
   <div>
@@ -18,7 +18,7 @@ const Places = ({ places }) => (
       places.length > 0
         ? places.map((place, index) => (
           <div key={index} style={placeStyle}>
-            <div>Name: {place.name}</div>
+            <div style={nameStyle}>Name: {place.name}</div>
             <div>Address: {place.formatted_address}</div>
             <Photos photos={place.photos} />
           </div>
