@@ -3,6 +3,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import usePlacesAutocomplete, { getGeocode, getLatLng } from 'use-places-autocomplete';
+
+// Styles
 import { suggestStyle } from './SearchStyles';
 
 const Search = ({ panTo }) => {
