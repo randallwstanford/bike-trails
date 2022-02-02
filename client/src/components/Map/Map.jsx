@@ -13,7 +13,7 @@ import Places from '../Places/Places';
 import { apiKey } from '../../../../api-key';
 
 // Styles
-import { placesContainer, mapContainerStyle } from './MapStyles';
+import { placesContainer, mapContainerStyle, appContainer } from './MapStyles';
 
 let service;
 
@@ -53,14 +53,17 @@ function Map() {
             <div style="text-align: center">
               <div>${result.name}</div>
               <div>${result.formatted_address}</div>
-              </div>
-            `;
+            </div>
+          `;
+
           const infoWindow = new window.google.maps.InfoWindow({ content: contentString });
           const marker = new window.google.maps.Marker({
             position: result.geometry.location,
             title: result.name,
             map,
           });
+
+          map.addListener('click', () => { infoWindow.close(); });
           marker.addListener('click', () => {
             infoWindow.close();
             infoWindow.open({ anchor: marker, map });
@@ -76,7 +79,7 @@ function Map() {
   if (!isLoaded) return <div>Loading...</div>;
 
   return (
-    <div>
+    <div style={appContainer}>
       <div style={placesContainer}>
         <Search panTo={panTo} />
         <Places places={places} />
