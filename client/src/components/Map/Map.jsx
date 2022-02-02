@@ -1,6 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-console */
-
 // Modules
 import React, { useCallback, useState } from 'react';
 import { GoogleMap, useLoadScript } from '@react-google-maps/api';
@@ -29,38 +26,32 @@ function Map() {
   // Map Load script
   const onMapLoad = useCallback((map) => {
     mapRef.current = map;
-    const bikeLayer = new window.google.maps.BicyclingLayer();
-    bikeLayer.setMap(map);
+    new window.google.maps.BicyclingLayer().setMap(map);
   }, []);
 
   const panTo = React.useCallback(({ lat, lng }) => {
-    mapRef.current.panTo({ lat, lng });
-    mapRef.current.setZoom(11);
     const map = mapRef.current;
+    const request = { location: { lat, lng }, query: 'bike trails' };
 
-    const request = {
-      location: { lat, lng },
-      radius: '500000',
-      query: 'bike trails',
-    };
+    map.panTo({ lat, lng });
+    map.setZoom(11);
 
-    service = new window.google.maps.places.PlacesService(mapRef.current);
+    service = new window.google.maps.places.PlacesService(map);
+
     service.textSearch(request, (results, status) => {
       if (status === window.google.maps.places.PlacesServiceStatus.OK) {
         setPlaces(results);
-        results.forEach((result) => {
-          const contentString = `
-            <div style="text-align: center">
-              <div>${result.name}</div>
-              <div>${result.formatted_address}</div>
-            </div>
-          `;
 
-          const infoWindow = new window.google.maps.InfoWindow({ content: contentString });
-          const marker = new window.google.maps.Marker({
-            position: result.geometry.location,
-            title: result.name,
-            map,
+        results.forEach((result) => {
+          const { location } = result.geometry;
+          const { name, formatted_address } = result;
+          const marker = new window.google.maps.Marker({ position: location, title: name, map });
+          const infoWindow = new window.google.maps.InfoWindow({
+            content: `
+              <div style="text-align: center">
+                <div>${name}</div><div>${formatted_address}</div>
+              </div>
+            `,
           });
 
           map.addListener('click', () => { infoWindow.close(); });
@@ -68,7 +59,7 @@ function Map() {
             infoWindow.close();
             infoWindow.open({ anchor: marker, map });
             infoWindow.open(marker.getMap(), marker);
-            mapRef.current.panTo({ lat: marker.position.lat(), lng: marker.position.lng() });
+            map.panTo({ lat: marker.position.lat(), lng: marker.position.lng() });
           });
         });
       }
