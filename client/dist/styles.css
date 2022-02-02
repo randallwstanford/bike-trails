@@ -13,7 +13,7 @@ h2 {
 
 input {
   background-color: #bebebe;
-  color: rgb(240, 240, 240);
+  color:rgb(80, 80, 80);
   width: 100%;
   height: 3rem;
   font-size: 1.5rem;
@@ -46,8 +46,8 @@ div::-webkit-scrollbar-track {
 }
 
 div::-webkit-scrollbar-thumb {
-  background-color: #738595;
-  border: 1px solid black;
+  background-color: #7C9BCB;
+
 }
 
 img {
