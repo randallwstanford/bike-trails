@@ -10,6 +10,8 @@
 ## About
 Find a bike trail or accessible cycling streets in your selected city.
 
+In this project I learned how to use the Google Maps API in React using the react-google-maps/api library. 
+
 ![GitHub repo size](https://img.shields.io/github/repo-size/randallwstanford/bike-trails?style=plastic)
 ![GitHub top language](https://img.shields.io/github/languages/top/randallwstanford/bike-trails?style=plastic)
 ![GitHub last commit](https://img.shields.io/github/last-commit/randallwstanford/bike-trails?color=red&style=plastic)
