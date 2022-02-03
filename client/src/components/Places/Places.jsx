@@ -6,7 +6,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // Components
-import Photos from '../Photos/Photos';
+// import Photos from '../Photos/Photos';
 
 // Styles
 import { noResultsStyle, placeStyle, resultCountStyle, nameStyle } from './PlacesStyles';
@@ -20,7 +20,6 @@ const Places = ({ places }) => (
           <div key={index} style={placeStyle}>
             <div style={nameStyle}>Name: {place.name}</div>
             <div>Address: {place.formatted_address}</div>
-            <Photos photos={place.photos} />
           </div>
         ))
         : <div style={noResultsStyle}>No results.</div>

@@ -1,6 +1,7 @@
 const placeStyle = {
   margin: '.25rem',
   marginBottom: '1rem',
+  paddingBottom: '1rem',
   borderBottom: '1px solid black',
   fontSize: '1rem',
 };

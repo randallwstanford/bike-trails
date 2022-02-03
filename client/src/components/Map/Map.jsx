@@ -43,13 +43,16 @@ function Map() {
         setPlaces(results);
 
         results.forEach((result) => {
+          console.log(result);
           const { location } = result.geometry;
-          const { name, formatted_address } = result;
+          const { name, formatted_address, photos } = result;
           const marker = new window.google.maps.Marker({ position: location, title: name, map });
           const infoWindow = new window.google.maps.InfoWindow({
             content: `
               <div style="text-align: center">
-                <div>${name}</div><div>${formatted_address}</div>
+                <div>${name}</div>
+                <div>${formatted_address}</div>
+                <img src=${photos[0].getUrl()} height="250rem" />
               </div>
             `,
           });
