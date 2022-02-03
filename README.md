@@ -45,4 +45,4 @@ $ npm run build
 ```
 
 ## Screenshot
-![bike-trails-screenshot](https://user-images.githubusercontent.com/83252804/152218263-93d6f53b-b9df-43b3-ad73-9c144fe262d3.png)
+![bike-trails-screenshot](file:///Users/randystanford/Screenshots/Screen%20Shot%202022-02-03%20at%2012.18.52%20PM.png)
