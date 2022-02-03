@@ -5,7 +5,8 @@
   * [Technologies](#technologies)
   * [Launch](#launch)
   * [Setup](#setup)
-  * [Screenshot](#screenshot)
+  * [Legend](#legend)
+  * [Screenshots](#screenshots)
 
 ## About
 Find a bike trail or accessible cycling streets in your selected city.
@@ -44,5 +45,12 @@ $ cd ../bike-trails
 $ npm run build
 ```
 
-## Screenshot
-![bike-trails-screenshot](https://user-images.githubusercontent.com/83252804/152218263-93d6f53b-b9df-43b3-ad73-9c144fe262d3.png)
+## Legend
+<div align="center"> 
+ <img src="https://user-images.githubusercontent.com/83252804/152416331-c610d3bf-7632-4c6c-b5fa-3af8c2034ba0.png" />
+</div>
+
+## Screenshots
+![bike-trails-screenshot](https://user-images.githubusercontent.com/83252804/152413877-c9802309-fb35-4572-acc4-9f6f50abe303.png)
+![bike-trails-screenshot2](https://user-images.githubusercontent.com/83252804/152415886-42f1a5ee-df1f-449f-b84b-b4213bbf7e7b.png)
+![bike-trails-screenshot3](https://user-images.githubusercontent.com/83252804/152416127-c1ac5b8a-c5f5-45de-9cc4-d593258cebd5.png)
