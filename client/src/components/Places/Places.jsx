@@ -5,9 +5,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// Components
-// import Photos from '../Photos/Photos';
-
 // Styles
 import { noResultsStyle, placeStyle, resultCountStyle, nameStyle } from './PlacesStyles';
 

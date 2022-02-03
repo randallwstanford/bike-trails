@@ -49,15 +49,3 @@ div::-webkit-scrollbar-thumb {
   background-color: #7C9BCB;
 
 }
-
-img {
-  transition:transform 1s ease;
-}
-
-img:hover {
-  z-index: 1;
-  -webkit-transform: scale(7.5);
-  transform:scale(7.5);
-  transform-origin: center left;
-}
-
