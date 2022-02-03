@@ -34,16 +34,18 @@ In this project I learned how to use the Google Maps API in React using the reac
 - Open up `api-key.example.js` and rename it to `api-key.js` and enter your api key into the apiKey string.
 
 ## Launch
+- Open terminal
 ```
 $ cd ../bike-trails
 $ npm install
 $ npm run server
 ```
-Open new terminal window
+- Open new terminal window
 ```
 $ cd ../bike-trails
 $ npm run build
 ```
+- Go to http://localhost:3000/
 
 ## Legend
 <div align="center"> 
