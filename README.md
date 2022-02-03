@@ -21,6 +21,7 @@ In this project I learned how to use the Google Maps API in React using the reac
  - react-google-maps/api version: 2.7.0
  - express.js version: 4.17.2
  - eslint version: 8.8.0
+ 
 ## Setup
 - Go to [Google Cloud Platform](https://console.cloud.google.com)
 - Click drop down menu in top left and click "New Project"
